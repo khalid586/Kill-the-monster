@@ -1,1 +1,1 @@
-Single player game using javascript.
+A simple single player game made using javascript.
