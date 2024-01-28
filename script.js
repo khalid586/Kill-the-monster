@@ -1,6 +1,6 @@
 let xp = 0;
 let health = 100;
-let gold = 50;
+let gold = 200;
 let currentWeapon = 0;
 let fighting;
 let monsterHealth;
@@ -53,6 +53,29 @@ const locations = [
         "button functions": [fightSlime, fightBeast, goTown],
         text: "You enter the cave. You see some monsters."
       },
+      {
+        name:"fight",
+        "button text":["Attack","Dodge","Run"],
+        "button functions":[attack,dodge,goTown],
+        text:"You are fighting a monster."
+    }
+];
+const monsters = [
+    {
+      name: "slime",
+      level: 2,
+      health: 15
+    },
+    {
+      name: "fanged beast",
+      level: 8,
+      health: 60
+    },
+    {
+      name: "dragon",
+      level: 20,
+      health: 300
+    },
 ];
 
 // initialize buttons
@@ -133,14 +156,30 @@ function sellWeapon(){
         text.innerText = "Don't sell your only weapon!";
     }
 }
-  
 
-function fightDragon() {
+function goFight(){
+
 }
 
 function fightSlime (){
+    fighting = 0;
+    goFight();
     
 }
 function fightBeast(){
+    fighting = 1;
+    goFight();
+}
+
+function fightDragon() {
+    fighting = 2;
+    goFight();
+}
+
+function attack(){
+
+}
+
+function dodge(){
 
 }
