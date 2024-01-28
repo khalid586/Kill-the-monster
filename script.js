@@ -64,7 +64,14 @@ function goCave() {
 }
 
 function buyHealth(){
-    
+    gold = gold - 10;
+    health = health + 10;
+
+    const currentGold = document.querySelector('#goldText');
+    currentGold.innerText = gold;
+
+    const currentHealth = document.querySelector('#healthText');
+    currentHealth.innerText = health;
 }
   
 function buyWeapon(){
