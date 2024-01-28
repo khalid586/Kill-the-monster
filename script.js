@@ -16,6 +16,24 @@ const goldText = document.querySelector("#goldText");
 const monsterStats = document.querySelector("#monsterStats");
 const monsterName = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("#monsterHealth");
+const weapons = [
+    {
+      name: "stick",
+      power: 5,
+    },
+    {
+        name: "dagger",
+        power: 30
+    },
+    {
+        name: "claw hammer",
+        power: 50
+    },
+    {
+        name: "sword",
+        power: 100
+    },
+];
 const locations = [
     {
         name : "town square",
@@ -64,18 +82,37 @@ function goCave() {
 }
 
 function buyHealth(){
-    gold = gold - 10;
-    health = health + 10;
+    if(gold >= 10){
+        gold -= 10;
+        health += 10;
+        const currentGold = document.querySelector('#goldText');
+        currentGold.innerText = gold;
+    
+        const currentHealth = document.querySelector('#healthText');
+        currentHealth.innerText = health;
+    }
+    else{
+        const message = document.querySelector("#text");
 
-    const currentGold = document.querySelector('#goldText');
-    currentGold.innerText = gold;
+        if(message.innerText == "You have entered the store."){
+            message.innerText += "\n\n You don't have enough gold";
+        }
+    }
 
-    const currentHealth = document.querySelector('#healthText');
-    currentHealth.innerText = health;
 }
   
 function buyWeapon(){
+    if(gold >= 30){
+        gold -= 30;  
+        currentWeapon++;
+        goldText.innerText = gold;
+        let newWeapon = weapons[currentWeapon].name;
 
+        text.innerText = "You now have a new weapon."; 
+    }else{
+        if(text.innerText == "You have entered the store." || text.innerText == "You now have a new weapon.")
+            text.innerText += "\n\nYou don't have enough gold to buy weapon.";
+    }
 }
   
 
