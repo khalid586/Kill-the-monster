@@ -2,7 +2,7 @@ let xp = 0;
 let health = 100;
 let gold = 200;
 let currentWeapon = 0;
-let fighting;
+let fighting = 0;
 let monsterHealth;
 let inventory = ["stick"];
 
@@ -160,6 +160,10 @@ function sellWeapon(){
 function goFight(){
     update(locations[3]);
     monsterHealth = monsters[fighting].health;
+    monsterStats.style.display = 'block';
+
+    monsterName.innerText = monsters[fighting].name;
+    monsterHealthText.innerText = monsters[fighting].health;
 }
 
 function fightSlime (){
@@ -178,7 +182,8 @@ function fightDragon() {
 }
 
 function attack(){
-
+    text.innerText = "The " + monsters[fighting].name +" attacks.";
+    text.innerText += " You attack it with your " +  weapons[currentWeapon].name + ".";
 }
 
 function dodge(){
