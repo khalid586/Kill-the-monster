@@ -310,7 +310,7 @@ function pickEight(){
 function restart(){
     xp = 0;
     health = 100;
-    gold = 50;
+    gold = 200;
     currentWeapon = 0;
     inventory = ['stick'];
 
